@@ -1,0 +1,28 @@
+chatbot.py
+
+from chatterbot.trainers import ListTrainer
+from chatterbot import ChatBot
+
+bot=ChatBot('Test')
+conv=open('chats.txt','r').readLines()
+
+bot.set_trainer(ListTrainer)
+bot.train(conv)
+
+while True:
+    request=input('you !')
+    response=bot.get_response(request)
+    print('bot!!',response)
+
+
+chats.txt
+
+
+hi
+hello
+how are you?
+i am fine, how can i help u
+opening time ?
+morning 9 am
+thanks
+welcome!
