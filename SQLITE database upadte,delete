@@ -1,0 +1,42 @@
+import sqlite3
+
+def create_table():
+ conn=sqlite3.connect("lite.db")
+ cur=conn.cursor()
+ cur.execute("CREATE TABLE IF NOT EXISTS store (item TEXT, quantity INTEGER,price REAL)")
+ conn.commit()
+ conn.close()
+
+def insert(item,quantity,price):
+  conn=sqlite3.connect("lite.db")
+  cur=conn.cursor()
+  cur.execute("INSERT INTO store VALUES(?,?,?)",(item,quantity,price))
+  conn.commit()
+  conn.close()
+
+insert('cup',1,450)
+
+def view():
+  conn=sqlite3.connect("lite.db")
+  cur=conn.cursor()
+  cur.execute("SELECT * FROM store")
+  rows=cur.fetchall()
+  conn.close()
+  return rows
+
+
+
+def update(price,item):
+
+   conn=sqlite3.connect("lite.db")
+   cur=conn.cursor()
+   cur.execute("UPDATE store SET price=? WHERE item=?",(price,item))
+   conn.commit()
+   conn.close()
+
+update(500,'cup')
+print(view())
+
+
+#used to create a database and upadate your files
+#insted update function use delete and countinue
