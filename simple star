@@ -1,12 +1,14 @@
+######## STAR PROGRAM ######
+
 r=int(input("enter the number of rows"))
 for i in range(0,r+1):
     for j in range(i):
         print("*",end='')
     print() 
 
-# above is star
 
-#below is number pyramid
+
+####### number pyramid ######
 
 r=int(input("enter the number of rows"))
 for i in range(0,r+1):
@@ -14,7 +16,7 @@ for i in range(0,r+1):
         print(i,end='')
     print()
 
-#fibonacci series
+#### fibonacci series #####
 
 terms = int(input("Enter the terms "))
 a = 0
