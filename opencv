@@ -1,0 +1,20 @@
+# image processing using open cv
+#pip install opencv-python
+
+import cv2
+import glob
+
+images=glob.glob("*.jpg")
+
+
+
+for image in images:
+    img=cv2.imread(image,0)
+    re=cv2.resize(img,(100,100))
+    cv2.imshow("heloo",re)
+    cv2.waitKey(1500)
+    cv2.destroyAllWindows()
+    cv2.imwrite("resized_"+image,re)
+
+
+#store the images in the folder glob function will detect the location of images
